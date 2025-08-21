@@ -1,7 +1,6 @@
-﻿namespace Min.ExtendKit.Common
-{
-    public class Class1
-    {
+﻿namespace Min.ExtendKit.Common;
 
-    }
+public class Class1
+{
+
 }

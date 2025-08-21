@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Dialogs\" />
+    <Folder Include="Win32\" />
+    <Folder Include="SysInfo\" />
+    <Folder Include="Registry\" />
+    <Folder Include="Shell\" />
+    <Folder Include="Net\" />
+    <Folder Include="Security\" />
+    <Folder Include="File\" />
+    <Folder Include="Logger\" />
+    <Folder Include="Hardware\" />
+  </ItemGroup>
+
 </Project>
