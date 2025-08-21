@@ -1,36 +1,4 @@
 # Min.ExtendKit.Common
 
 #### Description
-一个轻量级 Windows 开发工具库，封装常用对话框、文件操作、网络、注册表、权限、安全、系统信息和 Win32 API。模块化设计、调用简洁，支持 WPF、WinForms、WinUI 3 等，让 Windows 开发更高效便捷。
-
-#### Software Architecture
-Software architecture description
-
-#### Installation
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+A lightweight Windows development tool library that encapsulates common dialog boxes, file operations, networking, registry, permissions, security, system information, and Win32 APIs. With a modular design and simple call functions, it supports WPF, WinForms, WinUI 3, and more, making Windows development more efficient and convenient.
