@@ -4,11 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>x64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dialogs\" />
-    <Folder Include="Win32\" />
+    <Folder Include="Core\Models\" />
     <Folder Include="SysInfo\" />
     <Folder Include="Registry\" />
     <Folder Include="Shell\" />

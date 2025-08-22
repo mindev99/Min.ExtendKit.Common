@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>hmonw-higa8-001.ico</ApplicationIcon>
+    <PackageIcon>ic_修复.png</PackageIcon>
+    <Platforms>x86;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="hmonw-higa8-001.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\16602\Downloads\ic_修复.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Min.ExtendKit.Common\Min.ExtendKit.Common.csproj" />
+  </ItemGroup>
+
+</Project>
