@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Min.ExtendKit.Common.Core.Enum;
 using Min.ExtendKit.Common.Core.Interfaces.Dialogs;
+using Min.ExtendKit.Common.Core.Struct;
 using Min.ExtendKit.Common.Core.Win32.API;
 using Min.ExtendKit.Common.Core.Win32.COM;
 

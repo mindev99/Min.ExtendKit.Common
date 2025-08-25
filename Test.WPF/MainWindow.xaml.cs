@@ -41,11 +41,15 @@ public partial class MainWindow : Window
             new() { pszName = "文本文件 (*.txt)", pszSpec = "*.txt" },
             new() { pszName = "所有文件 (*.*)",   pszSpec = "*.*"  }
         };
-        string[]? array = Min.ExtendKit.Common.Dialogs.FileDialog.OpenFile("打开文件", allowMultiSelect: true, filter: filters);
+        string[]? array = Min.ExtendKit.Common.Dialogs.FileDialog.OpenFile("打开文件", defaultPath: @"C:\", allowMultiSelect: true, filter: filters, winHandle: new WindowInteropHelper(this).Handle);
         if (array != null)
         {
             MessageBox.Show(string.Join(Environment.NewLine, array));
         }
+
+        string? path = Min.ExtendKit.Common.Dialogs.FileDialog.SaveFile(title: "请选择保存位置", defaultPath: @"C:\", defaultFileName: "test.txt", filter: filters, onError: (msg, stack) => Console.WriteLine($"错误: {msg} - {stack}"), winHandle: new WindowInteropHelper(this).Handle);
+
+        MessageBox.Show(path);
 
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
+
 using Min.ExtendKit.Common.Core.Enum;
 using Min.ExtendKit.Common.Dialogs;
 
@@ -14,6 +16,7 @@ namespace Min.ExtendKit.Common.Core.Interfaces.Dialogs;
 /// 通常通过CreateFileOpenDialog函数获取该接口实例。
 /// 适用于Windows Vista及以上系统，提供比传统OpenFileDialog更现代的用户体验。
 /// </remarks>
+[SupportedOSPlatform("windows")]
 [ComImport]
 [Guid("d57c7288-d4ad-4768-be02-9d969532d960")]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -107,7 +110,7 @@ internal interface IFileOpenDialog
     /// 设置对话框打开时显示的文件夹
     /// </summary>
     /// <param name="psi">表示要显示的文件夹的IShellItem接口</param>
-    void SetFolder([In] nint psi);
+    void SetFolder(nint psi);
 
     /// <summary>
     /// 获取对话框当前显示的文件夹
@@ -196,10 +199,16 @@ internal interface IFileOpenDialog
 
     /// <summary>
     /// 获取用户选择的所有结果（适用于多选模式）
+    /// 官方文档：https://learn.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-ifiledialog-getresults
     /// </summary>
-    /// <param name="enumPtr">输出参数，返回包含所有所选项目的枚举接口</param>
-    void GetResults(out IntPtr enumPtr);
-    void GetResults([MarshalAs(UnmanagedType.Interface)] out IShellItemArray ppenum);
+    /// <param name="ppenum">输出参数，返回包含所有所选项目的 IShellItemArray 接口</param>
+    /// <returns>HRESULT 结果码（S_OK 表示成功，其他值表示失败）</returns>
+    /// <remarks>
+    /// 1. 仅当对话框以多选模式（FOS_ALLOWMULTISELECT）打开且用户点击"确定"（Show 返回 S_OK）时有效
+    /// 2. 调用方必须负责释放返回的 IShellItemArray 对象（使用 Marshal.ReleaseComObject）
+    /// 3. 若未选择任何文件，返回的 ppenum 可能为 null，需提前判断
+    /// </remarks>
+    void GetResults(out IShellItemArray ppenum);
 
     /// <summary>
     /// 获取对话框中当前选中的所有项目
