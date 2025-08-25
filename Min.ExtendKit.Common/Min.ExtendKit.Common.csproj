@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Core\DialogAPI.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Core\Models\" />
     <Folder Include="SysInfo\" />
     <Folder Include="Registry\" />

@@ -33,3 +33,24 @@ public struct COMDLG_FILTERSPEC
     [MarshalAs(UnmanagedType.LPWStr)]
     public string pszSpec;
 }
+
+/// <summary>
+/// 自定义颜色结构体，独立于 WPF 或 WinForms，可在任何项目中使用。
+/// </summary>
+public struct MinColor(byte r, byte g, byte b, byte a = 255)
+{
+    public byte R = r;
+    public byte G = g;
+    public byte B = b;
+    public byte A = a;
+
+    /// <summary>
+    /// 转换为 0xAARRGGBB 整数
+    /// </summary>
+    public int ToInt() => (A << 24) | (R << 16) | (G << 8) | B;
+
+    /// <summary>
+    /// 从 0xAARRGGBB 整数生成 MyColor
+    /// </summary>
+    public static MinColor FromInt(int argb) => new((byte)((argb >> 16) & 0xFF), (byte)((argb >> 8) & 0xFF), (byte)(argb & 0xFF), (byte)((argb >> 24) & 0xFF));
+}

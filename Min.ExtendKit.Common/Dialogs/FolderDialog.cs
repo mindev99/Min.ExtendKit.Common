@@ -136,7 +136,7 @@ public static class FolderDialog
         try
         {
             // 获取桌面作为根目录
-            if (API.SHGetSpecialFolderLocation(IntPtr.Zero, CSIDL_DESKTOP, out pidlRoot) != 0)
+            if (DialogAPI.SHGetSpecialFolderLocation(IntPtr.Zero, CSIDL_DESKTOP, out pidlRoot) != 0)
             {
                 return null;
             }
@@ -150,7 +150,7 @@ public static class FolderDialog
             };
 
             // 显示对话框
-            pidl = API.SHBrowseForFolder(ref browseInfo);
+            pidl = DialogAPI.SHBrowseForFolder(ref browseInfo);
 
             if (pidl != IntPtr.Zero)
             {
@@ -158,7 +158,7 @@ public static class FolderDialog
                 IntPtr pathPtr = Marshal.AllocCoTaskMem(260 * 2 + 1); // MAX_PATH
                 try
                 {
-                    if (API.SHGetPathFromIDList(pidl, pathPtr))
+                    if (DialogAPI.SHGetPathFromIDList(pidl, pathPtr))
                     {
                         string? path = Marshal.PtrToStringAuto(pathPtr);
                         return path;
@@ -176,8 +176,8 @@ public static class FolderDialog
         }
         finally
         {
-            if (pidl != IntPtr.Zero) API.CoTaskMemFree(pidl);
-            if (pidlRoot != IntPtr.Zero) API.CoTaskMemFree(pidlRoot);
+            if (pidl != IntPtr.Zero) DialogAPI.CoTaskMemFree(pidl);
+            if (pidlRoot != IntPtr.Zero) DialogAPI.CoTaskMemFree(pidlRoot);
         }
 
         return null;
@@ -186,7 +186,7 @@ public static class FolderDialog
     [SupportedOSPlatform("windows")]
     private static void SHCreateItemFromParsingName(string path, IntPtr pbc, Guid riid, out IntPtr ppv)
     {
-        API.SHCreateItemFromParsingName(path, pbc, ref riid, out ppv);
+        DialogAPI.SHCreateItemFromParsingName(path, pbc, ref riid, out ppv);
     }
 
 }

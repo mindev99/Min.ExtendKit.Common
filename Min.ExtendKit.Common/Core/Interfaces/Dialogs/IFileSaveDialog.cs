@@ -6,6 +6,7 @@ using Min.ExtendKit.Common.Dialogs;
 
 namespace Min.ExtendKit.Common.Core.Interfaces.Dialogs;
 
+[Obsolete("暂不使用")]
 [SupportedOSPlatform("windows")]
 [ComImport]
 [Guid("d57c7288-d4ad-4768-be02-9d969532d960")]

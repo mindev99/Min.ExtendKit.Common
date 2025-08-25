@@ -185,3 +185,65 @@ internal struct OPENFILENAME
     /// </summary>
     public int flagsEx;
 }
+
+/// <summary>
+/// Win32 原生颜色选择对话框结构体，用于调用 <c>ChooseColor</c> API。
+/// </summary>
+/// <remarks>
+/// 此结构体对应 Win32 API 中的 <c>CHOOSECOLOR</c>，用于初始化颜色对话框和接收用户选择结果。
+/// </remarks>
+[StructLayout(LayoutKind.Sequential)]
+internal struct CHOOSECOLOR
+{
+    /// <summary>
+    /// 结构体大小（字节数），必须设置为 <c>Marshal.SizeOf(typeof(CHOOSECOLOR))</c>。
+    /// </summary>
+    internal int lStructSize;
+
+    /// <summary>
+    /// 对话框父窗口句柄，如果为 <c>IntPtr.Zero</c>，则没有父窗口。
+    /// </summary>
+    internal IntPtr hwndOwner;
+
+    /// <summary>
+    /// 应用实例句柄，一般不使用，可设置为 <c>IntPtr.Zero</c>。
+    /// </summary>
+    internal IntPtr hInstance;
+
+    /// <summary>
+    /// 用户选择的颜色，返回值为 RGB 格式 (0x00BBGGRR)。
+    /// </summary>
+    internal uint rgbResult;
+
+    /// <summary>
+    /// 指向 16 个自定义颜色的数组的指针，允许用户在对话框中使用自定义调色板。
+    /// </summary>
+    internal IntPtr lpCustColors;
+
+    /// <summary>
+    /// 结构体标志位，控制对话框行为。
+    /// 常用标志：
+    /// <list type="bullet">
+    /// <item><description>CC_RGBINIT - 初始化颜色为 <c>rgbResult</c> 指定的颜色</description></item>
+    /// <item><description>CC_FULLOPEN - 打开时显示完整调色板</description></item>
+    /// </list>
+    /// </summary>
+    internal uint Flags;
+
+    /// <summary>
+    /// 用户自定义数据，一般为 <c>IntPtr.Zero</c>。
+    /// </summary>
+    internal IntPtr lCustData;
+
+    /// <summary>
+    /// 指向自定义对话框回调函数的指针，可为 <c>IntPtr.Zero</c>。
+    /// </summary>
+    internal IntPtr lpfnHook;
+
+    /// <summary>
+    /// 指定自定义对话框模板名称，可为 <c>null</c>。
+    /// </summary>
+    internal string lpTemplateName;
+}
+
+

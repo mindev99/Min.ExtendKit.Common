@@ -300,7 +300,7 @@ public static class FileDialog
         }
 
         // 调用Win32 API显示保存文件对话框
-        if (API.GetSaveFileName(ref ofn))
+        if (DialogAPI.GetSaveFileName(ref ofn))
         {
             // 去除字符串末尾的空字符，返回有效的文件路径
             return ofn.lpstrFile.TrimEnd('\0');
@@ -321,7 +321,7 @@ public static class FileDialog
     [SupportedOSPlatform("windows")]
     private static void SHCreateItemFromParsingName(string path, IntPtr pbc, Guid riid, out IntPtr ppv)
     {
-        API.SHCreateItemFromParsingName(path, pbc, ref riid, out ppv);
+        DialogAPI.SHCreateItemFromParsingName(path, pbc, ref riid, out ppv);
     }
 
     /// <summary>
