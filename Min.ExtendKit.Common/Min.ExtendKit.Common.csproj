@@ -5,7 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>x64;x86</Platforms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\Win32\新文件夹\**" />
+    <EmbeddedResource Remove="Core\Win32\新文件夹\**" />
+    <None Remove="Core\Win32\新文件夹\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Core\DialogAPI.cs" />
@@ -13,10 +20,8 @@
 
   <ItemGroup>
     <Folder Include="Core\Models\" />
-    <Folder Include="SysInfo\" />
     <Folder Include="Registry\" />
     <Folder Include="Shell\" />
-    <Folder Include="Net\" />
     <Folder Include="Security\" />
     <Folder Include="File\" />
     <Folder Include="Logger\" />

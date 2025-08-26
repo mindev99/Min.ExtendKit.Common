@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 using Min.ExtendKit.Common.Core.Struct;
 using Min.ExtendKit.Common.Core.Win32.API;
@@ -16,6 +17,7 @@ namespace Min.ExtendKit.Common.Dialogs;
 /// 5. 支持自定义初始颜色和自定义颜色数组。  
 /// 6. 用户取消选择时返回 <c>null</c>。
 /// </remarks>
+[SupportedOSPlatform("windows")]
 public static class ColorDialog
 {
     /// <summary>
@@ -44,6 +46,7 @@ public static class ColorDialog
     /// 4. 颜色值默认初始为白色 (0xFFFFFF)。
     /// 5. 返回值需要根据 <see cref="System.Drawing.Color"/> RGB 转换为 <see cref="System.Windows.Media.Color"/>。
     /// </remarks>
+    [SupportedOSPlatform("windows")]
     public static System.Drawing.Color? Show(nint? winHandle = null)
     {
         CHOOSECOLOR cc = new();
@@ -78,6 +81,7 @@ public static class ColorDialog
     /// <param name="winHandle">父窗口句柄，模态显示。如果没有父窗口，传 IntPtr.Zero</param>
     /// <param name="initialColor">初始显示的颜色</param>
     /// <returns>用户选择的颜色，如果取消则返回 null</returns>
+    [SupportedOSPlatform("windows")]
     public static MinColor? Show(nint? winHandle, MinColor? initialColor = null)
     {
         CHOOSECOLOR cc = new();
